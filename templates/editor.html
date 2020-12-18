@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CKEditor 5 sample</title>
+</head>
+<body>
+    <h1>CKEditor 5 custom build sample</h1>
+    
+    <div id="editor"></div>
+
+    <script src="{{ url_for('static', filename='ckeditor5/ckeditor.js') }}"></script>
+
+    <script>ClassicEditor
+        .create( document.querySelector( '#editor' ), {
+            toolbar: {
+                items: [
+                    'heading',
+                    '|',
+                    'bold',
+                    'italic',
+                    'link',
+                    'code',
+                    'codeBlock',
+                    'bulletedList',
+                    'numberedList',
+                    '|',
+                    'indent',
+                    'outdent',
+                    'alignment',
+                    '|',
+                    'fontBackgroundColor',
+                    'fontColor',
+                    'fontFamily',
+                    'fontSize',
+                    '|',
+                    'imageUpload',
+                    'blockQuote',
+                    'insertTable',
+                    'mediaEmbed',
+                    'horizontalLine',
+                    'undo',
+                    'redo'
+                ]
+            },
+            language: 'en',
+            image: {
+                toolbar: [
+                    'imageTextAlternative',
+                    'imageStyle:full',
+                    'imageStyle:side'
+                ]
+            },
+            table: {
+                contentToolbar: [
+                    'tableColumn',
+                    'tableRow',
+                    'mergeTableCells'
+                ]
+            }
+        } )
+        .then( editor => {
+            window.editor = editor;   
+        } )
+        .catch( error => {
+            console.error( 'Oops, something went wrong!' );
+            console.error( error );
+        } );
+</script>
+</body>
+</html>
